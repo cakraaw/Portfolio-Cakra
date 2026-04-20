@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakra Ananta Wangsa | Portofolio Fotografi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVIGASI */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 11, 11, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        nav .logo span {
+            color: #e1306c;
+        }
+
+        nav .menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav .menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav .menu a:hover {
+            color: #e1306c;
+        }
+
+        nav .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #e1306c;
+            transition: width 0.3s ease;
+        }
+
+        nav .menu a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            nav .menu {
+                display: none;
+            }
+        }
+
+        /* BAGIAN HERO */
+        .hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=900&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero .content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+        }
+
+        .hero .cta-button {
+            display: inline-block;
+            background: #e1306c;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .hero .cta-button:hover {
+            background: #c41e5e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
+        }
+
+        .hero .cta-button.outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero .cta-button.outline:hover {
+            background: white;
+            color: #0b0b0b;
+        }
+
+        /* GAYA BAGIAN */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section.dark-bg {
+            background: rgba(20, 20, 20, 0.5);
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* GRID LAYANAN */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(225, 48, 108, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            background: rgba(225, 48, 108, 0.1);
+            border-color: #e1306c;
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #e1306c;
+        }
+
+        .service-card p {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        /* GRID PORTOFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(225, 48, 108, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            border-color: #e1306c;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(225, 48, 108, 0.2);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-card .info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-card .category {
+            color: #e1306c;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-card p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* INSTAGRAM FEED */
+        .instagram-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .instagram-feed {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(225, 48, 108, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* BAGIAN TENTANG */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-content img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(225, 48, 108, 0.3);
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #e1306c;
+        }
+
+        .about-text p {
+            opacity: 0.8;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .about-text ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .about-text li {
+            opacity: 0.8;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .about-text li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #e1306c;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* BAGIAN KONTAK */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(225, 48, 108, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(225, 48, 108, 0.1);
+            border-color: #e1306c;
+        }
+
+        .contact-card h3 {
+            margin: 1rem 0;
+            color: #e1306c;
+        }
+
+        .contact-card a {
+            color: #e1306c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(225, 48, 108, 0.3);
+        }
+
+        .contact-cta p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050505;
+            padding: 4rem 2rem 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer h4 {
+            color: #e1306c;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        footer ul a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        footer ul a:hover {
+            opacity: 1;
+            color: #e1306c;
+            padding-left: 5px;
+        }
+
+        .social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social a {
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social a:hover {
+            transform: scale(1.2);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .button {
+            display: inline-block;
+            background: #e1306c;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background: #c41e5e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGASI -->
+    <nav>
+        <div class="container">
+            <div class="logo">Cakra <span>Ananta</span></div>
+            <ul class="menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- BAGIAN HERO -->
+    <section class="hero" id="home">
+        <div class="content">
+            <h1>Cakra Ananta Wangsa</h1>
+            <p>Fotografi • Jurnalisme</p>
+        </div>
+    </section>
+
+    <!-- BAGIAN TENTANG -->
+    <section class="section dark-bg" id="about">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+            <img src="
+https://www.image2url.com/r2/default/images/1776696805855-768860a8-fc5d-49ea-bc72-cc15121134d7.jpg" alt="image" alt="Cakra Ananta Wangsa">
+            <div class="about-text">
+                <h3>Fotografer & Jurnalis</h3>
+                <p>Saya Cakra Ananta Wangsa, seorang fotografer dan jurnalis yang berbasis di Bekasi, Indonesia. Dengan hasrat mendalam terhadap Esport dan budaya pop Jepang, saya mendedikasikan diri untuk mendokumentasikan komunitas yang semarak ini melalui fotografi dan jurnalisme.</p>
+                <p>Sebagai anggota Seputar Otaku, saya menggabungkan penceritaan visual dengan jurnalisme tertulis untuk menghidupkan kisah-kisah komunitas. Karya saya mencakup fotografi acara, studi potret, dan pembuatan konten media sosial.</p>
+                <ul>
+                    <li>Fotografi acara dan potret profesional</li>
+                    <li>Jurnalisme dan penulisan editorial</li>
+                    <li>Desain grafis dan pembuatan konten visual</li>
+                    <li>Manajemen dan kurasi media sosial</li>
+                </ul>
+                <p>Saat tidak berada di balik kamera , Anda akan menemukan saya bermain game (osu!, Genshin Impact, rhythm games).</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BAGIAN LAYANAN -->
+    <section class="section dark-bg">
+        <h2>Layanan</h2>
+        <p class="subtitle">Layanan kreatif komprehensif yang dirancang untuk menampilkan visi Anda dan terhubung dengan audiens Anda.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>📸 Jasa Fotografi</h3>
+                <p>Layanan fotografi acara profesional, potret, dan komersial yang disesuaikan dengan kebutuhan Anda.</p>
+            </div>
+            <div class="service-card">
+                <h3>✍️ Jurnalisme & Penulisan</h3>
+                <p>Liputan mendalam tentang acara anime, game, dan budaya pop dengan keunggulan editorial.</p>
+            </div>
+            <div class="service-card">
+                <h3>🎨 Edit Foto & Video</h3>
+                <p>Workflow editing meliputi seleksi foto, penyesuaian exposure, white balance, color correction, serta retouching ringan untuk menjaga detail makeup dan kostum pada fotografi.</p>
+            </div>
+            <div class="service-card">
+                <h3>📱 Manajemen Media Sosial</h3>
+                <p>Strategi konten, kurasi, dan distribusi lintas platform untuk jangkauan maksimal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN PORTOFOLIO -->
+    <section class="section" id="portfolio">
+        <h2>Karya Unggulan</h2>
+        <p class="subtitle">Pilihan proyek terbaru yang menampilkan karya fotografi, jurnalisme, dan desain di komunitas anime dan budaya pop.</p>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="info">
+                    <div class="category">Fotografi Potret</div>
+                    <h3>Potret Cosplay & Studi Karakter</h3>
+                    <img src = "https://cdn.discordapp.com/attachments/792042002652856341/1495808682066317402/IMG_6696-Enhanced-NR.jpg?ex=69e797e4&is=69e64664&hm=2384fcfc805a65d2ccd72fdf59d492564266a4fca337041b70b9b1663311ab2f&" alt="Potret Cosplay">
+                    <img src = "https://cdn.discordapp.com/attachments/792042002652856341/1495808817177563156/IMG_4907-Enhanced-NR.jpg?ex=69e79804&is=69e64684&hm=1cb64ce2a3c3f0b62058bc2afeee8819c80844dd31ac8384464766801533d9cf&" alt="Potret Cosplay">
+                    <p>Potret karakter cosplay yang menampilkan seni dan keahlian pembuatan kostum.</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="info">
+                    <div class="category">Jurnalisme & Fotografi</div>
+                    <h3>Reporter Seputar Otaku</h3>
+                    <img src = "https://cdn.discordapp.com/attachments/792042002652856341/1495810987222372444/Cosplay_Magazine_kembali_hadir_dalam_Edisi_Motion_IME_x_WCG_Official_2025_menghadirkan_deretan_2.webp?ex=69e79a0a&is=69e6488a&hm=8c1f009bcf41fd131403fa34c798cf707e263bcf7842cf0c3987a6a3dc977c77&" alt="Reporter Seputar Otaku">
+                    <img src = "https://media.discordapp.net/attachments/792042002652856341/1495811213588959363/Cosplay_Magazine_edisi_terbaru_kembali_hadir_dengan_menampilkan_deretan_cosplayer_keren_dari_be.webp?ex=69e79a40&is=69e648c0&hm=6722c44537926a4d785a2ab93a51bb2804f846988f3c521e727660f7db84a806&=&format=webp&width=720&height=960" alt="Reporter Seputar Otaku">
+                    <p>Fotografi dan jurnalisme untuk Seputar Otaku.</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <div class="info">
+                    <div class="category">Dokumentasi Acara</div>
+                    <h3>Acara Gaming & Komunitas</h3>
+                    <img src = "https://media.discordapp.net/attachments/792042002652856341/1495805883970621570/In_Frame_-_heyitsmomochan_IKL_Spring_2025.jpg?ex=69e79549&is=69e643c9&hm=95d5b4cdf22eecb3fb762c27eb5586e1c25394dd3c50f0fa9f2db6501ae74504&=&format=webp&width=760&height=960" alt="Dokumentasi Acara Gaming">
+                    <img src = "https://cdn.discordapp.com/attachments/792042002652856341/1495807379663749252/IMG_1633-Enhanced-NR.jpg?ex=69e796ae&is=69e6452e&hm=a5aa2104a82b8632417b44bea68d37330115d522ca6e31ff635d99f9a73d9ea6&" alt="Dokumentasi Acara Gaming">
+                    <p>Dokumentasi turnamen gaming, pertemuan komunitas, dan acara esports.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- INSTAGRAM FEED -->
+        <div class="instagram-section">
+            <h2>Terbaru dari Instagram</h2>
+            <p class="subtitle">Ikuti untuk fotografi terbaru, liputan acara, dan konten di balik layar</p>
+            <div class="instagram-feed">
+                <script src="https://elfsightcdn.com/platform.js" async></script>
+                <div class="elfsight-app-1d868ed0-6858-41bb-9efb-bac735fd1d98" data-elfsight-app-lazy></div>
+            </div>
+            <a href="https://www.instagram.com/cakraaw123/" target="_blank" class="button">Lihat Instagram Selengkapnya</a>
+        </div>
+    </section>
+
+    <!-- BAGIAN KONTAK -->
+    <section class="section" id="contact">
+        <div class="text-center" style="text-align: center;">
+            <h2>Mari Terhubung</h2>
+            <p class="subtitle" style="margin: 0 auto 3rem;">Tertarik dengan jasa fotografi, kolaborasi jurnalisme, atau pekerjaan desain? Saya akan senang mendengar dari Anda.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>📧 Email</h3>
+                <a href="mailto:cakraaw123@gmail.com">cakraaw123@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h3>📷 Instagram</h3>
+                <a href="https://instagram.com/cakraaw123" target="_blank">@cakraaw123</a>
+            </div>
+            <div class="contact-card">
+                <h3>💼 LinkedIn</h3>
+                <a href="https://linkedin.com/in/cakraaw" target="_blank">Cakra Ananta Wangsa</a>
+            </div>
+        </div>
+
+        <div class="contact-cta">
+            <p>Untuk jasa fotografi dan pertanyaan lainnya, jangan ragu untuk mengirim pesan langsung di Instagram atau email saya secara langsung.</p>
+            <a href="mailto:cakraaw123@gmail.com" class="button">Kirim Email</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>Cakra Ananta Wangsa</h4>
+                    <p>Fotografer, jurnalis, dan desainer yang berspesialisasi dalam anime dan budaya pop.</p>
+                </div>
+                <div>
+                    <h4>Tautan Cepat</h4>
+                    <ul>
+                        <li><a href="#portfolio">Portofolio</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ikuti</h4>
+                    <div class="social">
+                        <a href="https://instagram.com/cakraaw123" target="_blank" title="Instagram">📷</a>
+                        <a href="https://linkedin.com/in/cakraaw" target="_blank" title="LinkedIn">💼</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 Cakra Ananta Wangsa. Hak Cipta Dilindungi Undang-Undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
