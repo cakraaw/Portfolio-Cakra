@@ -191,6 +191,32 @@
             max-width: 600px;
         }
 
+        /* KEAHLIAN */
+        .skills{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 2rem;
+        }
+
+        .tag{
+        background: rgba(225, 48, 108, 0.12);
+        border: 1px solid rgba(225, 48, 108, 0.4);
+        color: #fff;
+        padding: 10px 18px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: all .3s ease;
+        }
+
+        .tag:hover{
+        background: #e1306c;
+        border-color: #e1306c;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(225,48,108,.25);
+        }
+
         /* GRID LAYANAN */
         .services-grid {
             display: grid;
@@ -225,61 +251,6 @@
             line-height: 1.8;
         }
 
-        /* GRID PORTOFOLIO */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .portfolio-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(225, 48, 108, 0.3);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .portfolio-card:hover {
-            border-color: #e1306c;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(225, 48, 108, 0.2);
-        }
-
-        .portfolio-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .portfolio-card .info {
-            padding: 1.5rem;
-        }
-
-        .portfolio-card .category {
-            color: #e1306c;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .portfolio-card p {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
 
         /* INSTAGRAM FEED */
         .instagram-section {
@@ -503,7 +474,7 @@
             <ul class="menu">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
-                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#skills">Keahlian</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
         </div>
@@ -538,26 +509,28 @@ https://www.image2url.com/r2/default/images/1776696805855-768860a8-fc5d-49ea-bc7
         </div>
     </section>
 
-     <!-- BAGIAN Keahlian -->
-    <section class="section dark-bg" id="about">
-         <h2>Keahlian</h2>
-    <p class="subtitle">Keahlian profesional dalam penulisan konten, optimasi SEO, dan produksi media digital untuk menghadirkan informasi yang menarik, akurat, dan mudah dijangkau audiens.</p>
-         <div class="services-grid">
+<!-- BAGIAN KEAHLIAN -->
+<section class="section dark-bg" id="skills">
+    <h2>Keahlian</h2>
+    <p class="subtitle">
+        Keahlian profesional dalam penulisan konten, optimasi SEO, fotografi, dan produksi media digital untuk menghasilkan karya yang informatif, menarik, dan berdampak.
+    </p>
 
-        <div class="skills">
-            <span class="tag">SEO Writing</span>
-            <span class="tag">News Writing</span>
-            <span class="tag">Feature Writing</span>
-            <span class="tag">Interview</span>
-            <span class="tag">WordPress</span>
-            <span class="tag">HTML</span>
-            <span class="tag">Copywriting</span>
-            <span class="tag">Photoshop</span>
-            <span class="tag">Canva</span>
-            <span class="tag">CapCut</span>
-        </div>
+    <div class="skills">
+        <span class="tag">SEO Writing</span>
+        <span class="tag">News Writing</span>
+        <span class="tag">Feature Writing</span>
+        <span class="tag">Interview</span>
+        <span class="tag">Copywriting</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">HTML</span>
+        <span class="tag">Adobe Photoshop</span>
+        <span class="tag">Canva</span>
+        <span class="tag">CapCut</span>
+        <span class="tag">Photography</span>
+        <span class="tag">Photo Editing</span>
     </div>
-    </section>
+</section>
 
     <!-- BAGIAN LAYANAN -->
     <section class="section dark-bg">
