@@ -89,97 +89,50 @@
         }
 
         /* BAGIAN HERO */
-        .hero-role{
-            font-size:1.3rem;
-            font-weight:600;
-            letter-spacing:2px;
-            margin-bottom:18px;
-        }
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 2rem 80px;
+    background:
+        linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+        url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=900&fit=crop');
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
 
-        .hero-desc{
-            max-width:720px;
-            margin:0 auto 40px;
-            font-size:1.1rem;
-            line-height:1.9;
-            opacity:.85;
-        }
-        .hero {
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                        url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1200&h=900&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            position: relative;
-            overflow: hidden;
-        }
+.hero .content{
+    max-width:850px;
+    margin:auto;
+}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(225, 48, 108, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
-            z-index: 1;
-        }
+.hero h1{
+    font-size:clamp(3rem,6vw,4.5rem);
+    font-weight:700;
+    margin-bottom:18px;
+    letter-spacing:-2px;
+    line-height:1.1;
+}
 
-        .hero .content {
-            position: relative;
-            z-index: 2;
-            animation: fadeInUp 0.8s ease-out;
-        }
+.hero-role{
+    font-size:1rem;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    color:#e1306c;
+    margin-bottom:32px;
+    font-weight:600;
+}
 
-        .hero h1 {
-            font-size: clamp(2.7rem, 8vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.7rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-        }
-
-        .hero .cta-button {
-            display: inline-block;
-            background: #e1306c;
-            color: white;
-            padding: 1rem 2.7rem;
-            border: none;
-            border-radius: 6px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0 0.7rem;
-        }
-
-        .hero .cta-button:hover {
-            background: #c41e5e;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(225, 48, 108, 0.3);
-        }
-
-        .hero .cta-button.outline {
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-        }
-
-        .hero .cta-button.outline:hover {
-            background: white;
-            color: #0b0b0b;
-        }
+.hero-desc{
+    max-width:700px;
+    margin:0 auto;
+    font-size:1.1rem;
+    line-height:2;
+    color:rgba(255,255,255,.82);
+}
 
         /* GAYA BAGIAN */
         .section {
@@ -495,16 +448,26 @@
     </nav>
 
     <!-- BAGIAN HERO -->
-    <section class="hero" id="home">
-        <div class="content">
-            <h1>Cakra Ananta Wangsa</h1>
-            <p class="hero-role">Fotografer Event • Esports • Cosplay</p>
-            <p class="hero-desc">
-            Saya adalah fotografer yang berfokus pada event, esports, cosplay, dan budaya pop. 
-            Melalui setiap frame, saya berusaha menangkap momen, emosi, dan atmosfer yang tidak bisa diulang, sehingga setiap foto mampu menceritakan kisah di balik sebuah acara.
-            </p>
-        </div>
-    </section>
+<section class="hero" id="home">
+    <div class="content">
+
+        <p class="hero-role">
+            Event • Esports • Cosplay Photographer
+        </p>
+
+        <h1>
+            Mengabadikan Cerita di Balik Setiap Momen.
+        </h1>
+
+        <p class="hero-desc">
+            Halo, saya <strong>Cakra Ananta Wangsa</strong>, seorang fotografer yang
+            berfokus pada event, esports, cosplay, dan budaya pop. Saya percaya
+            setiap momen hanya terjadi sekali, dan tugas saya adalah
+            mengubahnya menjadi visual yang dapat dikenang selamanya.
+        </p>
+
+    </div>
+</section>
 
     <!-- BAGIAN TENTANG -->
     <section class="section dark-bg" id="about">
